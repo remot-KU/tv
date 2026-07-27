@@ -54,6 +54,7 @@
             --text-gray: #1A237E;
             --call-blue: #1E88E5;
             --whatsapp-green: #25D366;
+            --instagram-color: #E4405F;
             --accent-coral: #FF5252;
             --gradient-start: #1E88E5;
             --gradient-end: #0D47A1;
@@ -84,8 +85,9 @@
             border-bottom: 4px solid var(--golden-yellow);
             text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            position: relative;
         }
-        
+
         .scrolling-content {
             display: inline-block;
             white-space: nowrap;
@@ -97,6 +99,41 @@
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
+        }
+
+        /* Instagram button inside banner - small */
+        .banner-instagram {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--instagram-color);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            border: 2px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 5;
+            white-space: nowrap;
+        }
+
+        .banner-instagram i {
+            font-size: 1rem;
+        }
+
+        .banner-instagram:hover {
+            transform: translateY(-50%) scale(1.08);
+            background: white;
+            color: var(--instagram-color);
+            border-color: var(--instagram-color);
+            box-shadow: 0 4px 15px rgba(228, 64, 95, 0.4);
         }
         
         /* Navbar - Blue & Gold */
@@ -693,6 +730,36 @@
             border-color: #0D47A1;
         }
         
+        /* Footer Instagram Button */
+        .footer-instagram {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--instagram-color);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            margin: 0.8rem 0;
+            box-shadow: 0 4px 15px rgba(228, 64, 95, 0.3);
+        }
+
+        .footer-instagram i {
+            font-size: 1.4rem;
+        }
+
+        .footer-instagram:hover {
+            transform: scale(1.08);
+            background: white;
+            color: var(--instagram-color);
+            border-color: var(--instagram-color);
+            box-shadow: 0 6px 25px rgba(228, 64, 95, 0.5);
+        }
+        
         .simple-footer {
             background: linear-gradient(135deg, #0A1E3F, #0D47A1, #1A237E);
             color: white;
@@ -755,6 +822,24 @@
                 padding: 0.8rem 1.5rem;
                 font-size: 0.9rem;
             }
+            .banner-instagram {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+                left: 10px;
+                gap: 4px;
+            }
+            .banner-instagram i {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-instagram span {
+                display: none;
+            }
+            .banner-instagram {
+                padding: 6px 10px;
+            }
         }
     </style>
 </head>
@@ -763,6 +848,10 @@
         <div class="scrolling-content">
             📡 شراء ريموت - توصيل ريموت تلفزيون - محل ريموتات - بيع ريموت الكويت - توصيل ريموت - ريموت تلفزيون - ريموت تكييف - جميع مناطق الكويت - اتصل الآن: 50956612 📡
         </div>
+        <!-- Instagram button inside banner -->
+        <a href="https://www.instagram.com/remote.tv.209/" target="_blank" class="banner-instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i> <span>متابعتنا</span>
+        </a>
     </div>
 
     <nav class="navbar">
@@ -935,6 +1024,10 @@
     <div class="simple-footer">
         <p>📱 شراء ريموت - توصيل ريموت تلفزيون - محل ريموتات - بيع ريموت الكويت - ريموت تكييف - خدمة 24 ساعة 📱</p>
         <div class="footer-phone" onclick="makePhoneCall('50956612')"><i class="fas fa-phone"></i> 50956612</div>
+        <!-- Instagram button in footer -->
+        <a href="https://www.instagram.com/remote.tv.209/" target="_blank" class="footer-instagram">
+            <i class="fab fa-instagram"></i> تابعنا على إنستغرام
+        </a>
         <p>ضمان الجودة - أسعار مناسبة - تغطية جميع مناطق الكويت</p>
         <p>جميع الحقوق محفوظة © 2026 | محل ريموتات الكويت - رقم الطلب 50956612</p>
     </div>
