@@ -4,7 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<meta name="google-site-verification" content="siRSF4b6zYgbtH3Wvr4x0lIVsdcz0W2tJ6TEoL_zQYI" />
+    <!-- Google tag (gtag.js) - NEW TRACKING CODE -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18174231436"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18174231436');
+    </script>
+
+    <!-- Event snippet for ابو هيبه conversion page -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18174231436/S2eCCLT5vtccEIyHk9pD',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
 
     <title>شراء ريموت - توصيل ريموت تلفزيون - محل ريموتات الكويت | 50956612</title>
     <meta name="description" content="✅ شراء ريموت - توصيل ريموت تلفزيون - محل ريموتات - بيع ريموت الكويت - توصيل ريموت - ريموت تلفزيون - ريموت تكييف - جميع مناطق الكويت - اتصل 50956612">
@@ -917,7 +940,7 @@
     </div>
 
     <script>
-        // Functions for phone and WhatsApp calls (no tracking)
+        // Functions for phone and WhatsApp calls with conversion tracking
         function makePhoneCall(phoneNumber) {
             var cleanNumber = String(phoneNumber).replace(/[\s\-]/g, '');
             if (!cleanNumber.startsWith('+') && !cleanNumber.startsWith('00')) {
@@ -928,18 +951,31 @@
                 }
             }
             var telUrl = 'tel:' + cleanNumber;
-            window.location.href = telUrl;
+            if (typeof gtag_report_conversion === 'function') {
+                gtag_report_conversion(telUrl);
+            }
+            setTimeout(function() {
+                window.location.href = telUrl;
+            }, 150);
             return false;
         }
 
         function trackWhatsAppClick(url) {
-            window.open(url, '_blank');
+            if (typeof gtag_report_conversion === 'function') {
+                gtag_report_conversion(url);
+            }
+            setTimeout(function() {
+                window.open(url, '_blank');
+            }, 150);
             return false;
         }
 
-        // Contact form submission (no tracking)
+        // Contact form submission with conversion tracking
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            if (typeof gtag_report_conversion === 'function') {
+                gtag_report_conversion();
+            }
             alert('شكراً لتواصلكم مع محل ريموتات الكويت! سيتم الاتصال بكم فوراً لتأكيد الطلب والتوصيل.');
             this.reset();
         });
